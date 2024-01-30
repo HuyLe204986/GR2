@@ -1,0 +1,76 @@
+.login-background {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+
+    .login-container {
+        width: 400px;
+        height: 100%;
+        margin: 0 auto;
+        background-color: #fff;
+
+        .login-content {
+            padding: 10px;
+
+            .login-text {
+                text-align: center;
+                font-weight: 600;
+                font-size: 24px;
+                padding-top: 10px;
+            }
+
+            .login-input {
+                margin: 7px 0;
+            }
+
+            .btn-login {
+                width: 100%;
+                margin: 10px 0;
+                height: 36px;
+                font-size: 16px;
+                border-radius: 4px;
+                outline: none;
+                border: none;
+                color: #fff;
+                background: linear-gradient(135deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+            }
+
+            .login-forgot-password {
+                font-size: 12px;
+            }
+
+            .login-social {
+                display: flex;
+                margin-top: 10px;
+                justify-content: center;
+                text-align: center;
+                gap: 10px;
+
+
+                .google {
+                    font-size: 30px;
+                    background: #c32424;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                }
+
+                .facebook {
+                    font-size: 30px;
+                    background: #307aff;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
