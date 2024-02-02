@@ -6,6 +6,8 @@ import { push } from 'connected-react-router';
 import * as actions from '../../store/actions';
 import './Login.scss';
 
+import { userService } from '../../services';
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +16,7 @@ class Login extends Component {
             password: '',
             isShowPassword: false,
             isShowIcon: false,
+            errMessage: '',
         };
     }
 
@@ -34,7 +37,7 @@ class Login extends Component {
     handleOnchangePassword = (event) => {
         this.setState({
             password: event.target.value,
-            isShowIcon:  event.target.value.length > 0 ? true : false,
+            isShowIcon: event.target.value.length > 0 ? true : false,
         });
     };
 
@@ -42,19 +45,42 @@ class Login extends Component {
         xử lý login
         author: huyltn(29/11)
     */
-    handleLogin = () => {
-        console.log('username: ', this.state.username, ' password: ', this.state.password);
+    handleLogin = async () => {
+        this.setState({
+            errMessage: '',
+        });
+        try {
+            let data = await userService.handleLogin(this.state.username, this.state.password);
+            if (data && data.errCode !== 0) {
+                this.setState({
+                    errMessage: data.message,
+                });
+            }
+            if (data && data.errCode === 0) {
+                this.props.userLoginSuccess(data.user);
+                console.log('login success');
+            }
+        } catch (error) {
+            console.log(error);
+            if (error.response) {
+                if (error.response.data) {
+                    this.setState({
+                        errMessage: error.response.data.message,
+                    });
+                }
+            }
+        }
     };
 
     /**
      * xử lý ẩn/hiện password
-     * @returns 
+     * @returns
      */
     handleShowHidePassword = () => {
         this.setState({
             isShowPassword: !this.state.isShowPassword,
-        })
-    }
+        });
+    };
 
     render() {
         return (
@@ -77,20 +103,27 @@ class Login extends Component {
                             <label>Password</label>
                             <div className="custom-input-password">
                                 <input
-                                    type={this.state.isShowPassword ? "text" : "password"}
+                                    type={this.state.isShowPassword ? 'text' : 'password'}
                                     className="form-control"
                                     placeholder="Enter your password"
                                     value={this.state.password}
                                     onChange={(event) => this.handleOnchangePassword(event)}
                                 />
-                                <span onClick={() => {this.handleShowHidePassword()}}>
-                                    <i class={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}
-                                        style={{display: this.state.isShowIcon ? 'block' : 'none'}}
+                                <span
+                                    onClick={() => {
+                                        this.handleShowHidePassword();
+                                    }}
+                                >
+                                    <i
+                                        class={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}
+                                        style={{ display: this.state.isShowIcon ? 'block' : 'none' }}
                                     ></i>
                                 </span>
                             </div>
                         </div>
-
+                        <div className="col-12" style={{ color: 'red' }}>
+                            {this.state.errMessage}
+                        </div>
                         <div className="col-12">
                             <button
                                 onClick={() => {
@@ -127,8 +160,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         navigate: (path) => dispatch(push(path)),
-        adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
-        adminLoginFail: () => dispatch(actions.adminLoginFail()),
+        // userLoginFail: () => dispatch(actions.adminLoginFail()),
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
     };
 };
 
