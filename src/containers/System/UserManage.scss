@@ -26,7 +26,7 @@
     color: white;
 }
 
-.btn {
+.btn-control {
     width: 50px;
     border: none;
     outline: none;
@@ -44,5 +44,47 @@
     &:hover {
         background-color: transparent !important;
         color: rgb(235, 15, 15) !important;
+    }
+}
+
+.modal-user-container {
+
+    .modal-content {
+        .modal-header {
+            button {
+                background-color: transparent !important;
+                border: none;
+                color: #fff;
+                font-size: 26px;
+            }
+        }
+    }
+
+    .modal-user-body {
+        display: flex;
+        gap: 10px;
+        margin: 6px 0;
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+
+            &.max-width-input {
+                width: 100%;
+            }
+
+            input {
+                border-radius: 4px;
+                height: 30px;
+                border: 1px solid #666;
+                outline: none;
+                padding: 0 10px;
+            }
+
+            label {
+                margin: 5px 0;
+            }
+        }
     }
 }

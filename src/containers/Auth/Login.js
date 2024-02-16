@@ -115,7 +115,7 @@ class Login extends Component {
                                     }}
                                 >
                                     <i
-                                        class={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}
+                                        className={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}
                                         style={{ display: this.state.isShowIcon ? 'block' : 'none' }}
                                     ></i>
                                 </span>
