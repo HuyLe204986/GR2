@@ -12,4 +12,16 @@ const createNewUser = (data) => {
     return axios.post('/api/cerate-new-user', data);
 };
 
-export { handleLogin, getAllUSers, createNewUser };
+const deleteUser = (id) => {
+    return axios.delete('/api/delete-user', {
+        data: {
+            id,
+        },
+    });
+};
+
+const editUser = (data) => {
+    return axios.put('/api/edit-user', data);
+};
+
+export { handleLogin, getAllUSers, createNewUser, deleteUser, editUser };
