@@ -4,7 +4,7 @@ import logo from '../../assets/logo.svg';
 import { FormattedMessage } from 'react-intl';
 import { languages } from '../../utils';
 import { changeLanguageApp } from '../../store/actions';
-
+import './HomeHeader.scss';
 class HomeHeader extends Component {
     /**
      * chuyển đổi ngôn ngữ cho ứng dụng
