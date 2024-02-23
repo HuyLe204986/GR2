@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty'
-// import './HomeHeader.scss';
+import MedicalFacility from './Section/MedicalFacility';
+import OutStandingDoctor from './Section/OutStandingDoctor';
+import HandleBook from './Section/HandBook'
+import './HomePage.scss';
 import { FormattedMessage } from "react-intl";
-
+// import css file
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class HomePage extends Component {
     render() {
+        let settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+        };
         return (
             <React.Fragment>
                 <HomeHeader />
@@ -61,8 +73,10 @@ class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <Specialty />
-                <div style={{height: '300px'}}></div>
+                <Specialty settings = {settings}/>
+                <MedicalFacility settings = {settings}/>
+                <OutStandingDoctor settings = {settings}/>
+                <HandleBook settings = {settings}/>
             </React.Fragment>
         );
     }
