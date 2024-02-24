@@ -5,6 +5,8 @@ import Specialty from './Section/Specialty'
 import MedicalFacility from './Section/MedicalFacility';
 import OutStandingDoctor from './Section/OutStandingDoctor';
 import HandleBook from './Section/HandBook'
+import About from './Section/About'
+import HomeFooter from './HomeFooter';
 import './HomePage.scss';
 import { FormattedMessage } from "react-intl";
 // import css file
@@ -77,6 +79,8 @@ class HomePage extends Component {
                 <MedicalFacility settings = {settings}/>
                 <OutStandingDoctor settings = {settings}/>
                 <HandleBook settings = {settings}/>
+                <About />
+                <HomeFooter />
             </React.Fragment>
         );
     }
