@@ -15,9 +15,9 @@ class About extends Component {
                             height="400px"
                             src="https://www.youtube.com/embed/5PvzGDU8WjM"
                             title="HIEUTHUHAI - Không Thể Say | Live Performance at Sóng 24"
-                            frameborder="0"
+                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
+                            allowFullScreen
                         ></iframe>
                     </div>
                     <div className="content-right">
