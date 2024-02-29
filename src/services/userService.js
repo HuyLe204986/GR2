@@ -28,4 +28,8 @@ const getAllCode = (type) => {
     return axios.get(`/api/allcode?type=${type}`);
 };
 
-export { handleLogin, getAllUSers, createNewUser, deleteUser, editUser, getAllCode };
+const getTopDoctorHome = (limit) => {
+    return axios.get(`/api/top-doctor-home?limit=${limit}`);
+}
+
+export { handleLogin, getAllUSers, createNewUser, deleteUser, editUser, getAllCode,getTopDoctorHome };

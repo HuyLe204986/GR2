@@ -34,6 +34,10 @@
     }
 }
 
+.slick-disabled {
+    display: none !important;
+}
+
 .section-share {
     &.section-specialty,
     &.section-outstanding-doctor {
@@ -64,7 +68,7 @@
                 }
 
                 &.section-outstanding-doctor-img {
-                    background-image: url('../../assets/outstanding-doctor/outstanding-doctor.jpeg');
+                    // background-image: url('../../assets/outstanding-doctor/outstanding-doctor.jpeg');
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;

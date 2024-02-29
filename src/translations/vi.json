@@ -34,21 +34,26 @@
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
             "manage-handbook": "Quản lý cẩm nang"
-        },
-        "manage-user": {
-            "add": "Thêm mới người dùng",
-            "email": "Email",
-            "password": "Mật khẩu",
-            "first-name": "Tên",
-            "last-name": "Họ",
-            "phone-number": "Số điện thoại",
-            "address": "Địa chỉ",
-            "gender": "Giới tính",
-            "position": "Chức danh",
-            "role": "Vai trò",
-            "image": "Ảnh đại diện",
-            "save": "Lưu user",
-            "edit": "Lưu thay đổi"
         }
+    }, 
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "first-name": "Tên",
+        "last-name": "Họ",
+        "phone-number": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "position": "Chức danh",
+        "role": "Vai trò",
+        "image": "Ảnh đại diện",
+        "save": "Lưu user",
+        "edit": "Lưu thay đổi"
+    },
+    "homepage": {
+        "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
+        "more-info": "Xem thêm",
+        "popular-specialty": "Chuyên khoa phổ biến"
     }
 }
