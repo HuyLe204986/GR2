@@ -217,3 +217,52 @@ export const fetchTopDoctor = () => {
         }
     };
 };
+
+export const fetchAllDoctors = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.getAllDoctors();
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTORS_SUCCESS,
+                    dataDoctors: res.data,
+                });
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTORS_FAILED,
+                });
+            }
+        } catch (error) {
+            console.log('error fetchAllDoctors failed', error);
+            dispatch({
+                type: actionTypes.FETCH_ALL_DOCTORS_FAILED,
+            });
+        }
+    };
+};
+
+export const  saveDetailDoctor = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.saveDetailDoctor(data);
+            if (res && res.errCode === 0) {
+                toast.success("Save detail doctor successfully")
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
+                });
+            } else {
+                toast.error("Save detail doctor error")
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
+                });
+            }
+        } catch (error) {
+            toast.error("Save detail doctor error")
+            console.log('error saveDetailDoctor failed', error);
+            dispatch({
+                type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
+            });
+        }
+    };
+};
+

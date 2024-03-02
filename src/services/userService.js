@@ -30,6 +30,29 @@ const getAllCode = (type) => {
 
 const getTopDoctorHome = (limit) => {
     return axios.get(`/api/top-doctor-home?limit=${limit}`);
-}
+};
 
-export { handleLogin, getAllUSers, createNewUser, deleteUser, editUser, getAllCode,getTopDoctorHome };
+const getAllDoctors = () => {
+    return axios.get(`/api/get-all-doctors`);
+};
+
+const saveDetailDoctor = (data) => {
+    return axios.post('/api/save-infor-doctors', data);
+};
+
+const getDetailDoctor = (id) => {
+    return axios.get(`/api/get-detail-doctor-by-id?id=${id}`);
+};
+
+export {
+    handleLogin,
+    getAllUSers,
+    createNewUser,
+    deleteUser,
+    editUser,
+    getAllCode,
+    getTopDoctorHome,
+    getAllDoctors,
+    saveDetailDoctor,
+    getDetailDoctor,
+};

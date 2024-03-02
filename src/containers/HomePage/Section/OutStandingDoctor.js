@@ -4,7 +4,10 @@ import Slider from 'react-slick';
 import * as actions from '../../../store/actions';
 import { languages } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
+import { withRouter } from "react-router";
+
 class OutStandingDoctor extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -23,6 +26,11 @@ class OutStandingDoctor extends Component {
             });
         }
     }
+
+    handleViewDetailDoctor = (doctor) => {
+        console.log('view info', doctor);
+        this.props.history.push(`/detail-doctor/${doctor.id}`);
+    };
     render() {
         let arrDoctors = this.state.arrDoctors;
         let { language } = this.props;
@@ -31,8 +39,12 @@ class OutStandingDoctor extends Component {
             <div className="section-share section-outstanding-doctor">
                 <div className="section-container">
                     <div className="section-header">
-                        <span className="title-section"><FormattedMessage id="homepage.outstanding-doctor" /></span>
-                        <button className="btn-section"><FormattedMessage id="homepage.more-info" /></button>
+                        <span className="title-section">
+                            <FormattedMessage id="homepage.outstanding-doctor" />
+                        </span>
+                        <button className="btn-section">
+                            <FormattedMessage id="homepage.more-info" />
+                        </button>
                     </div>
                     <div className="section-body">
                         <Slider {...this.props.settings}>
@@ -46,7 +58,11 @@ class OutStandingDoctor extends Component {
                                     let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                                     let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                                     return (
-                                        <div className="section-customize" key={index}>
+                                        <div
+                                            className="section-customize"
+                                            key={index}
+                                            onClick={() => this.handleViewDetailDoctor(item)}
+                                        >
                                             <div className="customize-border">
                                                 <div className="outer-bg">
                                                     <div
@@ -84,4 +100,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));
