@@ -241,23 +241,23 @@ export const fetchAllDoctors = () => {
     };
 };
 
-export const  saveDetailDoctor = (data) => {
+export const saveDetailDoctor = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await userService.saveDetailDoctor(data);
             if (res && res.errCode === 0) {
-                toast.success("Save detail doctor successfully")
+                toast.success('Save detail doctor successfully');
                 dispatch({
                     type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
                 });
             } else {
-                toast.error("Save detail doctor error")
+                toast.error('Save detail doctor error');
                 dispatch({
                     type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
                 });
             }
         } catch (error) {
-            toast.error("Save detail doctor error")
+            toast.error('Save detail doctor error');
             console.log('error saveDetailDoctor failed', error);
             dispatch({
                 type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
@@ -266,3 +266,25 @@ export const  saveDetailDoctor = (data) => {
     };
 };
 
+export const fetchAllScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.getAllCode('time');
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data,
+                });
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_SCHEDULE_TIME_FAILED,
+                });
+            }
+        } catch (error) {
+            console.log('error fetchAllScheduleTime failed', error);
+            dispatch({
+                type: actionTypes.FETCH_ALL_SCHEDULE_TIME_FAILED,
+            });
+        }
+    };
+};

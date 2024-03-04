@@ -20,7 +20,7 @@ export const CRUD_Actions = {
 };
 
 export const dateFormat = {
-    SEND_TO_SERVER: 'DD/MM/YYYY',
+    DAY_MONTH_YEAR: 'DD/MM/YYYY',
 };
 
 export const YesNoObj = {

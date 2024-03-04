@@ -12,11 +12,11 @@ import Select from 'react-select';
 import { CRUD_Actions, languages } from '../../../utils';
 import { userService } from '../../../services';
 
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-];
+// const options = [
+//     { value: 'chocolate', label: 'Chocolate' },
+//     { value: 'strawberry', label: 'Strawberry' },
+//     { value: 'vanilla', label: 'Vanilla' },
+// ];
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -116,7 +116,6 @@ class ManageDoctor extends Component {
                 hasOldData: false,
             });
         }
-        console.log('check res handleChangeSelect', res);
     };
 
     /**

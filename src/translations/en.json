@@ -58,5 +58,11 @@
         "outstanding-doctor": "Last week's featured doctor",
         "more-info": "More info",
         "popular-specialty": "Popular specialties"
+    },
+    "manage-schedule": {
+        "title": "Manage doctor's examination plan",
+        "choose-doctor": "Choose Doctor",
+        "choose-date": "Choose Date",
+        "save": "Save infor"
     }
 }
