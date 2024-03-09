@@ -6,6 +6,7 @@ import { userService } from '../../../services';
 import './DetailDoctor.scss';
 import { languages } from '../../../utils';
 import DoctorSchedule from './DoctorSchedule';
+import DoctorExtraInfor from './DoctorExtraInfor';
 class DetailDoctor extends Component {
     constructor(props) {
         super(props);
@@ -19,8 +20,8 @@ class DetailDoctor extends Component {
         if (this.props.match?.params?.id) {
             let id = this.props.match.params.id;
             this.setState({
-                currentDoctorId: id
-            })
+                currentDoctorId: id,
+            });
             let res = await userService.getDetailDoctor(id);
             if (res && res.errCode === 0) {
                 this.setState({
@@ -32,7 +33,6 @@ class DetailDoctor extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {}
     render() {
-        console.log(this.state);
         let { language } = this.props;
         let { detailDoctor } = this.state;
         let nameVi = '',
@@ -59,11 +59,11 @@ class DetailDoctor extends Component {
                     </div>
                     <div className="schedule-doctor">
                         <div className="content-left">
-                            <DoctorSchedule
-                                doctorIdFromParent={this.state.currentDoctorId}
-                            />
+                            <DoctorSchedule doctorIdFromParent={this.state.currentDoctorId} />
                         </div>
-                        <div className="content-right"></div>
+                        <div className="content-right">
+                            <DoctorExtraInfor doctorIdFromParent={this.state.currentDoctorId} />
+                        </div>
                     </div>
                     <div className="detail-infor-doctor">
                         {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML && (
