@@ -97,7 +97,6 @@ class UserRedux extends Component {
             let base64 = await CommonUtils.getBase64(file);
             console.log('base64: ', base64);
             let obejctUrl = URL.createObjectURL(file);
-            console.log('check img:', obejctUrl);
             this.setState({
                 previewImgURL: obejctUrl,
                 avatar: base64,
@@ -172,7 +171,7 @@ class UserRedux extends Component {
             });
         }
         if (action === CRUD_Actions.EDIT) {
-            console.log("vao edit");
+            console.log('vao edit');
             //fire redux edit user
             this.props.editAUserRedux({
                 id: this.state.userEditId,
@@ -214,7 +213,6 @@ class UserRedux extends Component {
             action: CRUD_Actions.EDIT,
             userEditId: user.id,
         });
-        
     };
 
     render() {

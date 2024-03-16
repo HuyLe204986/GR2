@@ -10,6 +10,8 @@ const initialState = {
     allDoctors: [],
     allScheduleTime: [],
     allRequiredDoctorInfor: [],
+
+    isSaveDetailDoctor: false,
 };
 
 const adminReducer = (state = initialState, action) => {
@@ -17,20 +19,17 @@ const adminReducer = (state = initialState, action) => {
         case actionTypes.FETCH_GENDER_START:
             let copyState = { ...state };
             copyState.isLoadingGender = true;
-            console.log('start fetch genders', action);
             return {
                 ...state,
             };
         case actionTypes.FETCH_GENDER_SUCCESS:
             state.genders = action.data;
             state.isLoadingGender = false;
-            console.log('success fetch genders', action);
 
             return {
                 ...state,
             };
         case actionTypes.FETCH_GENDER_FAILED:
-            console.log('failed fetch genders', action);
             state.isLoadingGender = false;
             state.genders = [];
             return {
@@ -38,25 +37,21 @@ const adminReducer = (state = initialState, action) => {
             };
         case actionTypes.FETCH_POSITION_SUCCESS:
             state.positions = action.data;
-            console.log('success fetch position', action);
             return {
                 ...state,
             };
         case actionTypes.FETCH_POSITION_FAILED:
-            console.log('failed fetch position', action);
             state.positions = [];
             return {
                 ...state,
             };
         case actionTypes.FETCH_ROLE_SUCCESS:
             state.roles = action.data;
-            console.log('success fetch role', action);
 
             return {
                 ...state,
             };
         case actionTypes.FETCH_ROLE_FAILED:
-            console.log('failed fetch role', action);
             state.roles = [];
             return {
                 ...state,
@@ -72,13 +67,11 @@ const adminReducer = (state = initialState, action) => {
                 ...state,
             };
         case actionTypes.FETCH_TOP_DOCTORS_SUCCESS:
-            console.log('vao top doctor success');
             state.topDoctors = action.dataDoctors;
             return {
                 ...state,
             };
         case actionTypes.FETCH_TOP_DOCTORS_FAILED:
-            console.log('vao top doctor failed');
             state.topDoctors = [];
             return {
                 ...state,
@@ -108,7 +101,6 @@ const adminReducer = (state = initialState, action) => {
 
         case actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_SUCCESS:
             state.allRequiredDoctorInfor = action.data;
-            console.log("action", action);
             return {
                 ...state,
             };
@@ -118,6 +110,17 @@ const adminReducer = (state = initialState, action) => {
                 ...state,
             };
 
+        case actionTypes.SAVE_DETAIL_DOCTOR_FAILED:
+            state.isSaveDetailDoctor = false;
+            return {
+                ...state,
+            };
+        case actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS:
+            state.isSaveDetailDoctor = true;
+
+            return {
+                ...state,
+            };
         default:
             return state;
     }

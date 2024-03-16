@@ -41,7 +41,6 @@ class BookingModel extends Component {
         if (this.props.genders !== prevProps.genders) {
             if (this.props.genders.length > 0) {
                 let { genders } = this.props;
-                console.log('did update', genders);
                 this.setState({
                     genders: this.buildDataGender(genders),
                 });
@@ -202,7 +201,7 @@ class BookingModel extends Component {
                     </div>
                     <div className="booking-modal-body">
                         <div className="doctor-info">
-                            <ProfileDoctor doctorId={doctorId} isShowDescDoctor={false} dataTime={dataTime} />
+                            <ProfileDoctor doctorId={doctorId} isShowDescDoctor={false} dataTime={dataTime} isShowPrice={true}/>
                         </div>
                         <div className="row">
                             <div className="col-6 form-group">

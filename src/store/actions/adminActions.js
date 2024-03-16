@@ -197,9 +197,7 @@ export const fetchTopDoctor = () => {
     return async (dispatch, getState) => {
         try {
             let res = await userService.getTopDoctorHome('');
-            console.log('check res top doctor', res);
             if (res && res.errCode === 0) {
-                console.log('check ok top doctor', res);
                 dispatch({
                     type: actionTypes.FETCH_TOP_DOCTORS_SUCCESS,
                     dataDoctors: res.data,
@@ -246,12 +244,12 @@ export const saveDetailDoctor = (data) => {
         try {
             let res = await userService.saveDetailDoctor(data);
             if (res && res.errCode === 0) {
-                toast.success('Save detail doctor successfully');
                 dispatch({
                     type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
                 });
+                toast.success('Save detail doctor successfully');
             } else {
-                toast.error('Save detail doctor error');
+                toast.error(res.errMessage);
                 dispatch({
                     type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
                 });
@@ -298,18 +296,22 @@ export const getRequireDoctorInfor = () => {
             let resPrice = await userService.getAllCode('price');
             let resPayment = await userService.getAllCode('payment');
             let resProvince = await userService.getAllCode('province');
+            let resSpecialty = await userService.getAllSpecialty();
             if (
                 resPrice &&
                 resPrice.errCode === 0 &&
                 resPayment &&
                 resPayment.errCode === 0 &&
                 resProvince &&
-                resProvince.errCode === 0
+                resProvince.errCode === 0 &&
+                resSpecialty &&
+                resSpecialty.errCode === 0
             ) {
                 let data = {
                     resPrice: resPrice.data,
                     resPayment: resPayment.data,
                     resProvince: resProvince.data,
+                    resSpecialty: resSpecialty.data,
                 };
                 dispatch(fetchRequireDoctorInforSuccess(data));
             } else {
