@@ -36,7 +36,8 @@
             "manage-handbook": "Quản lý cẩm nang"
         },
         "doctor": {
-            "manage-schedule": "Quản lý kế hoạch khám bệnh"
+            "manage-schedule": "Quản lý kế hoạch khám bệnh",
+            "manage-patient": "Quản lý bệnh nhân khám bệnh"
         }
     },
     "manage-user": {
@@ -57,13 +58,36 @@
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
         "more-info": "Xem thêm",
-        "popular-specialty": "Chuyên khoa phổ biến"
+        "popular-specialty": "Chuyên khoa phổ biến",
+        "search": "Tìm kiếm",
+        "outstanding-medical-facilities": "Cơ sở y tế nổi bật",
+        "handbook": "Cẩm nang",
+        "entertainment": "Giải trí"
     },
     "manage-schedule": {
         "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
         "choose-doctor": "Chọn bác sĩ",
         "choose-date": "Chọn ngày",
         "save": "Lưu thông tin"
+    },
+    "manage-patient": {
+        "medical-examination-schedule": "Quản lý kế hoạch khám bệnh",
+        "choose-date": "Chọn ngày khám",
+        "numerical-order": "STT",
+        "time": "Thời gian",
+        "full-name": "Họ và tên",
+        "address": "Địa chỉ",
+        "actions": "Thao tác",
+        "btn-confirm": "Xác nhận",
+        "no-data": "Không có dữ liệu",
+
+        "send-remedy": {
+            "send-medical-bill": "Gửi góa đơn khám bệnh",
+            "email": "Email bệnh nhân",
+            "remedy-file": "Chọn file đơn thuốc",
+            "send": "Gửi",
+            "cancel": "Thoát"
+        }
     },
     "patient": {
         "detail-doctor": {

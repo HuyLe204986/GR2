@@ -80,8 +80,24 @@ const getDetailSpecialtyById = (id, location) => {
     return axios.get(`/api/get-detail-special-by-id?id=${id}&location=${location}`);
 };
 
-const createNewClinic= (data) => {
+const createNewClinic = (data) => {
     return axios.post('/api/create-new-clinic', data);
+};
+
+const getAllClinic = () => {
+    return axios.get(`/api/get-all-clinic`);
+};
+
+const getDetailClinicById = (id) => {
+    return axios.get(`/api/get-detail-clinic-by-id?id=${id}`);
+};
+
+const getListPatientForDoctor = (data) => {
+    return axios.get(`/api/get-list-patient-for-doctor?doctorId=${data.doctorId}&date=${data.date}`);
+};
+
+const sendRemedy = (data) => {
+    return axios.post('/api/send-remedy', data);
 };
 export {
     handleLogin,
@@ -103,5 +119,9 @@ export {
     createNewSpecialty,
     getAllSpecialty,
     getDetailSpecialtyById,
-    createNewClinic
+    createNewClinic,
+    getAllClinic,
+    getDetailClinicById,
+    getListPatientForDoctor,
+    sendRemedy,
 };

@@ -41,6 +41,7 @@ class VerifyEmail extends Component {
 
     render() {
         let { statusVerify, errCode } = this.state;
+        console.log('state',this.state);
         return (
             <>
                 <HomeHeader />
